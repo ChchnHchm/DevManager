@@ -1,0 +1,19 @@
+Copyright © [2024-2025] [ChchnHchm]
+Conditions d'Utilisation
+
+    Usage Non Commercial :
+    Ce code est mis à disposition uniquement pour un usage personnel ou éducatif non commercial. Vous êtes autorisé à consulter, utiliser et modifier le code source à condition que cela ne serve pas d'activités commerciales.
+
+    Utilisation Commerciale :
+    Toute utilisation commerciale, incluant mais sans s’y limiter, la vente, la distribution, ou l’utilisation du code source dans un produit ou service payant, nécessite une autorisation écrite préalable de l’auteur.
+
+    Redistribution :
+    Vous n’êtes pas autorisé à distribuer, partager ou publier ce code sous forme modifiée ou originale sans l’autorisation de l’auteur. Si une telle autorisation est obtenue, l’auteur doit être crédité de manière appropriée.
+
+    Modification :
+    Vous pouvez modifier le code pour un usage personnel non commercial. Cependant, toute modification ne doit pas être redistribuée sans l’autorisation préalable de l’auteur.
+
+    Limitation de Responsabilité :
+    Ce code est fourni "tel quel", sans garantie d’aucune sorte. L'auteur ne pourra être tenu responsable de tout dommage résultant de l’utilisation de ce code.
+
+

@@ -1,0 +1,82 @@
+/* Structure principale de la page */
+.main-layout {
+    display: flex;
+    justify-content: center;  /* Centrer horizontalement */
+    align-items: flex-start;  /* Aligner les éléments en haut */
+    height: 100vh;            /* Hauteur de la page complète */
+    padding: 20px;
+}
+
+/* Style de la table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed; /* Faire en sorte que les colonnes aient la même taille */
+    margin: 20px 0;
+    background-color: #fff; /* Fond blanc pour la table */
+    border-radius: 8px; /* Coins arrondis pour la table */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre subtile */
+}
+
+/* Style des en-têtes de table */
+th {
+    padding: 12px 16px;
+    background-color: #f4f4f4;
+    color: #333;
+    font-weight: 600;
+    text-align: left;
+    border-bottom: 2px solid #ddd;
+}
+
+/* Style des cellules de la table */
+td {
+    padding: 12px 16px;
+    color: #555;
+    font-size: 14px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Ligne au survol (hover) */
+tr:hover {
+    background-color: #f1f1f1;
+    cursor: pointer; /* Change le curseur en main */
+}
+
+/* Pastille de statut (rouge, vert, orange) */
+.pastille {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 auto;  /* Centrer la pastille dans la cellule */
+    border: 2px solid #fff; /* Bordure blanche pour la démarcation */
+}
+
+.pastille.vert {
+    background-color: #4caf50; /* Vert */
+}
+
+.pastille.rouge {
+    background-color: #f44336; /* Rouge */
+}
+
+.pastille.orange {
+    background-color: #ff9800; /* Orange */
+}
+
+/* Responsivité - pour les petits écrans */
+@media (max-width: 768px) {
+    table {
+        font-size: 14px; /* Réduire la taille de la police */
+    }
+
+    th, td {
+        padding: 10px 12px; /* Réduire le padding des cellules */
+    }
+
+    .pastille {
+        width: 10px;
+        height: 10px; /* Réduire la taille des pastilles */
+    }
+}

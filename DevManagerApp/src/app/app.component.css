@@ -1,0 +1,14 @@
+.sidenav-container {
+    height: 100vh;
+  }
+  
+  .mat-toolbar {
+    position: fixed;
+    width: calc(100% - 200px);
+  }
+  
+  .content {
+    padding: 20px;
+    margin-top: 64px;
+  }
+  

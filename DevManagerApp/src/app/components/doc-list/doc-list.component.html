@@ -1,0 +1,30 @@
+<header>
+    <h1>Liste des documents</h1>
+</header>
+<div class="main-layout">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Statut</th>
+                        <th>Date</th>
+                        <th>Développeur</th>
+                        <th>Titre</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Exemples de lignes, à répéter pour chaque document -->
+                    <tr *ngFor="let doc of documents" (click)="openDocument(doc)">
+                        <td>
+                            <span class="pastille" [ngClass]="{
+                                'vert': doc.status === 'green',
+                                'rouge': doc.status === 'red',
+                                'orange': doc.status === 'orange'
+                            }"></span>
+                        </td>
+                        <td>{{ doc.date | date:'shortDate' }}</td>
+                        <td>{{ doc.dev }}</td>
+                        <td [routerLink]="['/docs', doc.id]">{{ doc.title }}</td>
+                    </tr>
+                </tbody>
+            </table>
+</div>

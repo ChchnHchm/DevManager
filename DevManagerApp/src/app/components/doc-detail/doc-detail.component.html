@@ -1,0 +1,28 @@
+<div *ngIf="doc">
+    <h2>{{ doc.titre }}</h2>
+    <p><strong>Contexte :</strong> {{ doc.contexte }}</p>
+    <p><strong>Développeur :</strong> {{ doc.developpeur }}</p>
+    <h3>Modifications</h3>
+    <ul>
+      <li *ngFor="let modif of doc.modifications">{{ modif }}</li>
+    </ul>
+    <h3>Contenu du BOB</h3>
+    <table mat-table [dataSource]="doc.bobTable">
+      <ng-container matColumnDef="ecran">
+        <th mat-header-cell *matHeaderCellDef> Nom de l'écran </th>
+        <td mat-cell *matCellDef="let element"> {{element.ecran}} </td>
+      </ng-container>
+      <ng-container matColumnDef="type">
+        <th mat-header-cell *matHeaderCellDef> Type </th>
+        <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+      </ng-container>
+      <ng-container matColumnDef="nouveau">
+        <th mat-header-cell *matHeaderCellDef> Nouveau </th>
+        <td mat-cell *matCellDef="let element"> {{element.nouveau ? 'Oui' : 'Non'}} </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="['ecran', 'type', 'nouveau']"></tr>
+      <tr mat-row *matRowDef="let row; columns: ['ecran', 'type', 'nouveau']"></tr>
+    </table>
+  </div>
+  

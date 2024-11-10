@@ -1,0 +1,141 @@
+/* Réinitialisation des styles de base */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Police globale */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f6f9;  /* Fond clair pour une sensation de légèreté */
+    color: #333;  /* Texte sombre pour un bon contraste */
+    line-height: 1.6;
+}
+
+/* Couleurs principales */
+:root {
+    --primary-color: #007bff;  /* Bleu primaire */
+    --secondary-color: #6c757d;  /* Gris pour les éléments secondaires */
+    --background-color: #f4f6f9;  /* Fond clair */
+    --white: #ffffff;
+}
+
+/* Disposition principale */
+.main-layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Barre latérale */
+.sidebar {
+    width: 250px;
+    background-color: #fff;
+    border-right: 3px solid #ddd;  /* Démarcation à droite de la barre */
+    color: #333;
+    padding: 20px;
+    height: 100%;
+    position: fixed;  /* Fait que la barre soit fixe */
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar li {
+    margin: 20px 0;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1.1rem;
+    padding: 10px;
+    display: block;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.sidebar a:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+
+/* Contenu principal */
+.main-content {
+    margin-left: 250px;  /* Décale le contenu principal vers la droite pour ne pas chevaucher la barre */
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Table des documents */
+.table-container {
+    width: 100%;
+    margin-top: 20px;
+    padding: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th,
+table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+table th {
+    background-color: #f8f9fa;
+}
+
+table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Format des pastilles de couleur */
+.pastille {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.pastille.vert {
+    background-color: #28a745;  /* Vert */
+}
+
+.pastille.rouge {
+    background-color: #dc3545;  /* Rouge */
+}
+
+.pastille.orange {
+    background-color: #fd7e14;  /* Orange */
+}
+
+/* Responsive design pour petits écrans */
+@media (max-width: 768px) {
+    .main-layout {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        border-right: none;
+        position: relative;  /* La barre de navigation devient relative */
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+}
