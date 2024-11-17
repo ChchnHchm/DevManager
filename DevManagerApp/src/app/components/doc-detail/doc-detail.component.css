@@ -1,0 +1,59 @@
+/* Styling général */
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .dev {
+    font-size: 1.2rem;
+    color: #555;
+  }
+  
+  .date {
+    font-size: 1rem;
+    color: #777;
+  }
+  
+  .contexte {
+    margin: 20px 0;
+  }
+  
+  h3 {
+    margin-top: 20px;
+    font-size: 1.5rem;
+    color: #333;
+  }
+  
+  .modifications ul {
+    padding-left: 20px;
+  }
+  
+  .modifications li {
+    list-style-type: disc;
+  }
+  
+  .bob-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .bob-content th, .bob-content td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  .commentaires {
+    margin-top: 20px;
+  }
+  
+  .commentaires textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    resize: vertical;
+  }
+  

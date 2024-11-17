@@ -1,28 +1,51 @@
 <div *ngIf="doc">
-    <h2>{{ doc.titre }}</h2>
-    <p><strong>Contexte :</strong> {{ doc.contexte }}</p>
-    <p><strong>Développeur :</strong> {{ doc.developpeur }}</p>
+  <!-- Titre -->
+  <h1>{{ doc.title }}</h1>
+  
+  <!-- Dev -->
+  <p class="dev">{{ doc.dev }}</p>
+  
+  <!-- Date -->
+  <p class="date">Date: {{ doc.date | date:'mediumDate' }}</p>
+  
+  <!-- Contexte -->
+  <div class="contexte">
+    <strong>Contexte:</strong>
+    <p>{{ doc.client }}</p>
+  </div>
+  
+  <!-- Liste des Modifications -->
+  <div class="modifications">
     <h3>Modifications</h3>
     <ul>
       <li *ngFor="let modif of doc.modifications">{{ modif }}</li>
     </ul>
-    <h3>Contenu du BOB</h3>
-    <table mat-table [dataSource]="doc.bobTable">
-      <ng-container matColumnDef="ecran">
-        <th mat-header-cell *matHeaderCellDef> Nom de l'écran </th>
-        <td mat-cell *matCellDef="let element"> {{element.ecran}} </td>
-      </ng-container>
-      <ng-container matColumnDef="type">
-        <th mat-header-cell *matHeaderCellDef> Type </th>
-        <td mat-cell *matCellDef="let element"> {{element.type}} </td>
-      </ng-container>
-      <ng-container matColumnDef="nouveau">
-        <th mat-header-cell *matHeaderCellDef> Nouveau </th>
-        <td mat-cell *matCellDef="let element"> {{element.nouveau ? 'Oui' : 'Non'}} </td>
-      </ng-container>
+  </div>
   
-      <tr mat-header-row *matHeaderRowDef="['ecran', 'type', 'nouveau']"></tr>
-      <tr mat-row *matRowDef="let row; columns: ['ecran', 'type', 'nouveau']"></tr>
+  <!-- Contenu du BOB -->
+  <div class="bob-content">
+    <h3>Contenu du BOB</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Ecran</th>
+          <th>Type</th>
+          <th>Nouveau</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of doc.bobTable">
+          <td>{{ item.ecran }}</td>
+          <td>{{ item.type }}</td>
+          <td>{{ item.nouveau ? 'Oui' : 'Non' }}</td>
+        </tr>
+      </tbody>
     </table>
   </div>
   
+  <!-- Zone de Commentaires -->
+  <div class="commentaires">
+    <h3>Commentaires</h3>
+    <textarea [(ngModel)]="doc.commentaire" rows="5" placeholder="Ajouter un commentaire"></textarea>
+  </div>
+</div>

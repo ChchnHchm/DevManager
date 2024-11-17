@@ -1,30 +1,76 @@
-<header>
-    <h1>Liste des documents</h1>
-</header>
+<app-header-list (documentCreated)="onDocumentCreated()" (filtersChanged)="applyFilters($event)"></app-header-list>
 <div class="main-layout">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Statut</th>
-                        <th>Date</th>
-                        <th>Développeur</th>
-                        <th>Titre</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Exemples de lignes, à répéter pour chaque document -->
-                    <tr *ngFor="let doc of documents" (click)="openDocument(doc)">
-                        <td>
-                            <span class="pastille" [ngClass]="{
-                                'vert': doc.status === 'green',
-                                'rouge': doc.status === 'red',
-                                'orange': doc.status === 'orange'
-                            }"></span>
-                        </td>
-                        <td>{{ doc.date | date:'shortDate' }}</td>
-                        <td>{{ doc.dev }}</td>
-                        <td [routerLink]="['/docs', doc.id]">{{ doc.title }}</td>
-                    </tr>
-                </tbody>
-            </table>
+    <table>
+        <thead>
+            <tr>
+                <th (click)="sortData('status')">
+                    Statut
+                    <span *ngIf="sortColumn === 'status'">
+                        <span *ngIf="sortOrder === 'asc'">↑</span>
+                        <span *ngIf="sortOrder === 'desc'">↓</span>
+                    </span>
+                </th>
+                <th (click)="sortData('Date')">
+                    Date
+                    <span *ngIf="sortColumn === 'date'">
+                        <span *ngIf="sortOrder === 'asc'">↑</span>
+                        <span *ngIf="sortOrder === 'desc'">↓</span>
+                    </span>
+                </th>
+                <th (click)="sortData('dev')">
+                    Développeur
+                    <span *ngIf="sortColumn === 'dev'">
+                        <span *ngIf="sortOrder === 'asc'">↑</span>
+                        <span *ngIf="sortOrder === 'desc'">↓</span>
+                    </span>
+                </th>
+                <th (click)="sortData('title')">
+                    Titre
+                    <span *ngIf="sortColumn === 'title'">
+                        <span *ngIf="sortOrder === 'asc'">↑</span>
+                        <span *ngIf="sortOrder === 'desc'">↓</span>
+                    </span>
+                </th>
+                <th>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let doc of docs" (click)="openDocument(doc)">
+                <td>
+                    <span 
+                    class="pastille"
+                    [ngClass]="{
+                      'bleu': doc.status === 'en attente de Chiffrage',
+                      'rouge': doc.status === 'annulé',
+                      'orange': doc.status === 'en cours',
+                      'vert': doc.status === 'terminé',
+                      'grise': doc.status === 'à faire' || doc.status === 'À faire'
+                    }"></span>
+                </td>
+                <td>{{ doc.date | date:'shortDate' }}</td>
+                <td>{{ doc.dev }}</td>
+                <td [routerLink]="['/docs', doc._id]">{{ doc.title }}</td>
+
+                <td>
+                    <button mat-icon-button color="warn" (click)="confirmDelete(doc, $event)">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </td>
+                
+            </tr>
+        </tbody>
+    </table>
+
+    
+<div class="pagination-controls">
+  <button mat-button (click)="previousPage()" [disabled]="currentPage === 1">
+    Page précédente
+  </button>
+  <span>Page {{ currentPage }} sur {{ totalPages }}</span>
+  <button mat-button (click)="nextPage()" [disabled]="currentPage === totalPages">
+    Page suivante
+  </button>
+</div>
+
 </div>

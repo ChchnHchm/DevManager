@@ -1,0 +1,33 @@
+<div class="header-container">
+    <div class="actions">
+      <button mat-raised-button color="primary" (click)="openCreateDocumentDialog()">Ajouter un Nouveau Développement</button>
+    </div>
+  
+    <div class="filters">
+      <mat-form-field appearance="fill">
+        <mat-label>Statut</mat-label>
+        <mat-select [(ngModel)]="filter.status" (selectionChange)="applyFilters()">
+          <mat-option value="">Tous</mat-option>
+          <mat-option *ngFor="let status of statusOptions" [value]="status">{{ status }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Développeur</mat-label>
+        <input matInput [(ngModel)]="filter.dev" (ngModelChange)="applyFilters()" placeholder="Recherche par développeur">
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Titre</mat-label>
+        <input matInput [(ngModel)]="filter.title" (ngModelChange)="applyFilters()" placeholder="Recherche par titre">
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Date</mat-label>
+        <input matInput [(ngModel)]="filter.date" (ngModelChange)="applyFilters()" [matDatepicker]="picker" placeholder="Sélectionner une date">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+  </div>
+  

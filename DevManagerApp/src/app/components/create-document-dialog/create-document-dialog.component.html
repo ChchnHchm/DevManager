@@ -1,0 +1,34 @@
+<h2 mat-dialog-title>Nouveau Développement</h2>
+<mat-dialog-content>
+  <form #documentForm="ngForm">
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Titre</mat-label>
+      <input matInput [(ngModel)]="createDocumentForm.title" name="title" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Développeur</mat-label>
+      <input matInput [(ngModel)]="createDocumentForm.dev" name="dev" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Date</mat-label>
+      <input matInput [matDatepicker]="picker" [(ngModel)]="createDocumentForm.date" name="date" required />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Statut</mat-label>
+      <mat-select [(ngModel)]="createDocumentForm.status" name="status" required>
+        <mat-option *ngFor="let status of statusOptions" [value]="status">
+          {{ status }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button (click)="onCancel()">Annuler</button>
+  <button mat-raised-button color="primary" (click)="onCreate()" [disabled]="!documentForm.form.valid">Créer</button>
+</mat-dialog-actions>

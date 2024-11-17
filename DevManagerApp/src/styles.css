@@ -110,17 +110,7 @@ table tr:hover {
     margin-right: 10px;
 }
 
-.pastille.vert {
-    background-color: #28a745;  /* Vert */
-}
 
-.pastille.rouge {
-    background-color: #dc3545;  /* Rouge */
-}
-
-.pastille.orange {
-    background-color: #fd7e14;  /* Orange */
-}
 
 /* Responsive design pour petits écrans */
 @media (max-width: 768px) {
